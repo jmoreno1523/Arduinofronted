@@ -7,7 +7,9 @@ function App() {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await fetch("https://arduino-back-tau.vercel.ap/api/logs");
+        // Corrige la URL aquí (.app, no .ap)
+        const res = await fetch("https://arduino-back-tau.vercel.app/api/logs");
+        if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
         const data = await res.json();
         setLogs(data);
       } catch (err) {
@@ -31,6 +33,7 @@ function App() {
         body: JSON.stringify({ button: flecha }),
       });
 
+      if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
       const { log } = await res.json();
       setLogs((prev) => [log, ...prev]); // Agrega al historial visible
     } catch (error) {
