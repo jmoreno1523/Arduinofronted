@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await fetch("http://localhost:3001/api/logs");
+        const res = await fetch("https://arduino-back-tau.vercel.ap/api/logs");
         const data = await res.json();
         setLogs(data);
       } catch (err) {
