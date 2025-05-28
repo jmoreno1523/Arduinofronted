@@ -23,7 +23,7 @@ function App() {
   // Enviar una flecha
   const enviarFlecha = async (flecha) => {
     try {
-      const res = await fetch("http://localhost:3001/api/flecha", {
+      const res = await fetch("https://arduino-back-tau.vercel.app/api/flecha", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
